@@ -1,7 +1,8 @@
 from flask import Flask, render_template, flash, redirect
 from flask_debugtoolbar import DebugToolbarExtension
 from models import db, connect_db, Pet
-createdb flask_wtforms
+
+
 # from forms import --
 # from forms import --
 
