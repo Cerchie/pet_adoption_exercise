@@ -14,3 +14,8 @@ debug = DebugToolbarExtension(app)
 
 connect_db(app)
 
+@app.route("/")
+def homepage():
+    """Show homepage links."""
+
+    return render_template("homepage.html")
