@@ -1,7 +1,7 @@
 from flask import Flask, render_template, flash, redirect
 from flask_debugtoolbar import DebugToolbarExtension
 from models import db, connect_db, Pet
-
+createdb flask_wtforms
 # from forms import --
 # from forms import --
 
@@ -18,4 +18,4 @@ connect_db(app)
 def homepage():
     """Show homepage links."""
     pet = Pet.query.get_or_404(id)
-    return render_template("homepage.html")
+    return render_template("homepage.html", pet=pet)
