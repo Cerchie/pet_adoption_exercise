@@ -17,5 +17,5 @@ connect_db(app)
 @app.route("/")
 def homepage():
     """Show homepage links."""
-
+    pet = Pet.query.get_or_404(id)
     return render_template("homepage.html")
