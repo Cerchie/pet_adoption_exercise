@@ -34,17 +34,17 @@ class AddPetForm(FlaskForm):
     )
 
 
-# class EditPetForm(FlaskForm):
-#     """Form for editing an existing pet."""
+class EditPetForm(FlaskForm):
+    """Form for editing an existing pet."""
 
-#     photo_url = StringField(
-#         "Photo URL",
-#         validators=[Optional(), URL()],
-#     )
+    photo_url = StringField(
+        "Photo URL",
+        validators=[Optional(), URL()],
+    )
 
-#     notes = TextAreaField(
-#         "Comments",
-#         validators=[Optional(), Length(min=10)],
-#     )
+    notes = TextAreaField(
+        "Comments",
+        validators=[Optional(), Length(min=10)],
+    )
 
-#     available = BooleanField("Available?")
+    available = BooleanField("Available?")
