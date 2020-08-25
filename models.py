@@ -15,7 +15,7 @@ def connect_db(app):
 class Pet(db.Model):
     """Pet."""
 
-    __tablename__ = "users"
+    __tablename__ = "pets"
 
     id = db.Column(db.Integer,
                    primary_key=True,
@@ -31,3 +31,4 @@ class Pet(db.Model):
     notes = db.Column(db.Text, nullable=True)
 
     available = db.Column(db.Boolean, default=True)
+    

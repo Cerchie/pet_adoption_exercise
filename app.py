@@ -1,4 +1,4 @@
-from flask import Flask, render_template, flash, redirect
+from flask import Flask, render_template, flash, redirect, flash, jsonify, url_for
 from flask_debugtoolbar import DebugToolbarExtension
 from models import db, connect_db, Pet
 
@@ -8,7 +8,7 @@ from models import db, connect_db, Pet
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "oh-so-secret"
-app.config["SQLALCHEMY_DATABASE_URI"] = "postgres:///flask_wtforms"
+app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql:///adopt"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
 debug = DebugToolbarExtension(app)
@@ -16,7 +16,7 @@ debug = DebugToolbarExtension(app)
 connect_db(app)
 
 @app.route("/")
-def homepage():
+def list_pets():
     """Show homepage links."""
-    pet = Pet.query.get_or_404(id)
-    return render_template("homepage.html", pet=pet)
+    pets = Pet.query.all()
+    return render_template("homepage.html", pets=pets)
