@@ -3,8 +3,7 @@ from flask_debugtoolbar import DebugToolbarExtension
 from models import db, connect_db, Pet
 
 
-# from forms import --
-# from forms import --
+from forms import AddPetForm
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "oh-so-secret"
@@ -20,3 +19,8 @@ def list_pets():
     """Show homepage links."""
     pets = Pet.query.all()
     return render_template("homepage.html", pets=pets)
+
+@app.route("/add")
+def add_pet():
+    """show page for adding a pet"""
+    return render_template("adding_a_pet.html")
